@@ -1,18 +1,10 @@
 import { connect } from 'dva'
+import Redirect from 'umi/redirect';
 
-const home = ({ posts }) => {
+const home = () => {
   return (
-    <div className="test">
-      <h1>this is index page</h1>
-      {posts.map((post) => <p>post._id</p>)}
-    </div>
+    <Redirect to="/posts?page=1" />
   )
 }
 
-const mapStateToProps = (state) => {
-  console.log('state: ', state);
-  return {
-    posts: [],
-  }
-}
-export default connect(mapStateToProps)(home);
+export default connect()(home);
