@@ -1,12 +1,12 @@
 import { connect } from 'dva';
+import styles from './index.css'
+import Player from '../../components/DPlayer/index'
 
 const Post = ({ source, status }) => {
 
   return (
-    <div>
-      <h3>this is post page</h3>
-      <p>{source}</p>
-      <p>{status === 'failed' ? '解析失败' : '解析成功'}</p>
+    <div className={styles.post}>
+      <Player video={{ url: 'https://marisa.s3.didiyunapi.com/BilibiliJJ.COM-【东方偶像乡MMD】这的确是偶像级的dream★fighter_.mp4' }} screenshot={true} className={styles.player}/>
     </div>
   )
 }
