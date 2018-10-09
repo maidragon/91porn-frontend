@@ -6,6 +6,8 @@ export default {
   state: {
     posts: [],
     currentPage: 1,
+    // pages: 1,
+    total: 1,
   },
 
   effects: {
@@ -16,7 +18,7 @@ export default {
         return doc;
       });
       console.log('posts: ', result.docs);
-      yield put({ type: 'save', payload: { posts } });
+      yield put({ type: 'save', payload: { posts, total: result.total } });
     },
   },
 
@@ -25,10 +27,10 @@ export default {
       return {
         ...state,
         posts: [...payload.posts],
+        total: payload.total,
       };
     },
     changePage(state, { payload }) {
-      console.log('payload: ', payload);
       return {
         ...state,
         currentPage: +payload.page,
