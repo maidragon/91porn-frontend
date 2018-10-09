@@ -1,4 +1,5 @@
 import { Card } from 'antd'
+import styles from './index.css'
 const { Meta } = Card;
 
 const PostList = ({ posts }) => {
@@ -12,7 +13,7 @@ const PostList = ({ posts }) => {
 
 const PostItem = ({ item }) => {
   return (
-    <div className="post-item-container">
+    <div className={styles['post-item']}>
       <Card
         hoverable
         style={{ width: 240, marginTop: 10, marginBottom: 10 }}
