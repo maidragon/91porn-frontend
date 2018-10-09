@@ -13,12 +13,12 @@ export default {
   effects: {
     *fetch({ payload: { page } }, { call, put }) {
       const { result } = yield call(fetchPosts, { page });
-      var posts = result.docs.map((doc) => {
-        doc.thumbnail = "https://img.hacpai.com/bing/20180613.jpg?imageView2/1/w/220/h/150/format/jpg/interlace/1/q"
-        return doc;
-      });
-      console.log('posts: ', result.docs);
-      yield put({ type: 'save', payload: { posts, total: result.total } });
+      // var posts = result.docs.map((doc) => {
+      //   doc.thumbnail = "https://img.hacpai.com/bing/20180613.jpg?imageView2/1/w/220/h/150/format/jpg/interlace/1/q"
+      //   return doc;
+      // });
+      // console.log('posts: ', result.docs);
+      yield put({ type: 'save', payload: { posts: result.docs, total: result.total } });
     },
   },
 

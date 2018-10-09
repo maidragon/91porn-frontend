@@ -1,5 +1,6 @@
 import { Card } from 'antd'
 import Link from 'umi/link';
+import router from 'umi/router';
 import styles from './index.css'
 const { Meta } = Card;
 
@@ -13,10 +14,8 @@ const PostList = ({ posts }) => {
 }
 
 const PostItem = ({ item }) => {
-  function renderCover() {
-    return (
-      <Link to={`/post?viewkey=${item.viewkey}`}><img alt="example" src={item.thumbnail} /></Link>
-    )
+  function handleClickCard() {
+    router.push(`/post?viewkey=${item.viewkey}`);
   }
 
   return (
@@ -24,7 +23,8 @@ const PostItem = ({ item }) => {
       <Card
         hoverable
         style={{ width: 240, marginTop: 10, marginBottom: 10 }}
-        cover={renderCover()}
+        cover={<img alt="example" src={item.thumbnail} />}
+        onClick={handleClickCard}
       >
         <Meta
           title={item.title}

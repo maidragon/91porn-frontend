@@ -3,12 +3,15 @@ import styles from './index.css'
 import Player from '../../components/DPlayer/index'
 
 const Post = ({ source, status }) => {
-
-  return (
-    <div className={styles.post}>
-      <Player video={{ url: 'https://marisa.s3.didiyunapi.com/BilibiliJJ.COM-【东方偶像乡MMD】这的确是偶像级的dream★fighter_.mp4' }} screenshot={true} className={styles.player}/>
-    </div>
-  )
+  console.log('source: ', source);
+  if (source.length > 0) {
+    return (
+      <div className={styles.post}>
+        <Player video={{ url: source }} screenshot={true} className={styles.player}/>
+      </div>
+    )
+  }
+  return <h3>loading...</h3>
 }
 
 const mapStateToProps = ({ post }) => ({
