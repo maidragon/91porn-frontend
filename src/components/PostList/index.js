@@ -1,4 +1,5 @@
 import { Card } from 'antd'
+import Link from 'umi/link';
 import styles from './index.css'
 const { Meta } = Card;
 
@@ -12,12 +13,18 @@ const PostList = ({ posts }) => {
 }
 
 const PostItem = ({ item }) => {
+  function renderCover() {
+    return (
+      <Link to={`/post?viewkey=${item.viewkey}`}><img alt="example" src={item.thumbnail} /></Link>
+    )
+  }
+
   return (
     <div className={styles['post-item']}>
       <Card
         hoverable
         style={{ width: 240, marginTop: 10, marginBottom: 10 }}
-        cover={<img alt="example" src={item.thumbnail} />}
+        cover={renderCover()}
       >
         <Meta
           title={item.title}
