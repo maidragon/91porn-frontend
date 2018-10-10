@@ -7,7 +7,7 @@ const Post = ({ source, status }) => {
   if (source.length > 0) {
     return (
       <div className={styles.post}>
-        <Player video={{ url: source }} screenshot={true} className={styles.player}/>
+        <Player video={{ url: source }} className={styles.player}/>
       </div>
     )
   }
