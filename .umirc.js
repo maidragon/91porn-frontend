@@ -16,4 +16,5 @@ export default {
       hardSource: true,
     }],
   ],
+  history: 'hash'
 }
